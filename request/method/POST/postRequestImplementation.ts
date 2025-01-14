@@ -1,6 +1,5 @@
-import api from "@/request/utils/api";
 import { IPostRequest } from "./postRequestInterface";
-import request from "@/RMO/mapper";
+import request from "@/request/RME/mapper";
 
 
 class PostRequests implements IPostRequest {

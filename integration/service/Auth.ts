@@ -13,7 +13,6 @@ class AuthService implements IAuthService {
       return data;
     } catch (error) {
       throw isAxiosError(error) ? error.response?.data : error;
-       
     }
   };
 }

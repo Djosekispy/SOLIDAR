@@ -15,7 +15,6 @@ const LoginScreen = () => {
     setIsLoading(true);
     try {
       const user = await authService.signIn(email, password);
-      console.log(JSON.stringify(user))
       alert('Usuário logado')
     } catch (error) {
       alert((error as any).message)

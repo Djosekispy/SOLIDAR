@@ -1,9 +1,9 @@
 
-# **S.O.L.I.D.A.R**
+# **R.I.V**
 
 
 ## **Descrição do Projeto**  
-Este projeto é uma aplicação desenvolvida utilizando uma arquitetura limpa, modular e escalável, com foco na separação de responsabilidades entre camadas. Ele foi projetado para facilitar a manutenção, teste e expansão, reduzindo o custo de exploração e mitigando riscos de alterações não intencionais.
+Este projeto é uma aplicação desenvolvida utilizando uma arquitetura limpa, modular e escalável, com foco na separação de responsabilidades entre camadas. Ele foi projetado para facilitar a manutenção, teste e expansão, reduzindo o custo de exploração e mitigando riscos de alterações não intencionais. Ela foi pensada como prova de conceito por minha parte, nascendo da necessidade de tornar as nossas aplicações mais modulares. 
 
 A arquitetura segue os princípios descritos por Robert C. Martin no livro _"Clean Architecture"_, implementando camadas bem definidas:
 
@@ -23,6 +23,7 @@ SOLIDAR/
 │   ├── method/
 │   │   ├── POST/
 │   │   └── GET/
+|   |__ RMO
 ├── integration/
 │   ├── model/
 │   ├── repository/
@@ -191,7 +192,7 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 ---
 
-## **Contato**
+## **Contacto**
 
 Para dúvidas ou sugestões:  
 **Nome do Desenvolvedor**  

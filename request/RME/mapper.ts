@@ -1,9 +1,7 @@
 import api from "@/request/utils/api";
 import RequestMapper from "./RequestMapping";
+import config from "@/config/endpoint";
 
-const config = {
-  login: { endpoint: "/login" },
-};
 
 const request = new RequestMapper(config, api);
 
