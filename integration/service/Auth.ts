@@ -9,8 +9,8 @@ class AuthService implements IAuthService {
     try {
       const sanitizedEmail = email.trim().toLowerCase();
       const sanitizedPassword = password.trim();
-      const user =  await this.userRepository.login(sanitizedEmail, sanitizedPassword);
-      return user;
+      const { data } =  await this.userRepository.login(sanitizedEmail, sanitizedPassword);
+      return data;
     } catch (error) {
       throw isAxiosError(error) ? error.response?.data : error;
        
