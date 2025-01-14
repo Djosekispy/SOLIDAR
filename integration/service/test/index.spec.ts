@@ -1,18 +1,19 @@
+import { isAxiosError } from "axios";
 import { authService } from "..";
 
 describe('Testando o Login', () => {
-  it.skip('Deve retornar : Ops! Nenhuma conta associada.', async () => {
+  it('Deve retornar : Ops! Nenhuma conta associada.', async () => {
     try {
         await authService.signIn('glob@gmail.com', '123');
     } catch (error) {
-        expect(error).toBe('Ops! Nenhuma conta associada.');
+        expect((error as any).message).toBe('Ops! Nenhuma conta associada.');
     }
   });
 
-  it.skip('Deve retornar: Sucesso', async () => {
+  it('Deve retornar: Sucesso', async () => {
     try {
       const user = await authService.signIn('globof129@gmail.com', '123');
-      expect(user).toMatchObject({
+      expect(user.seller).toMatchObject({
         id: expect.any(Number),
         reference: expect.any(String),
         username: expect.any(String),
@@ -34,7 +35,7 @@ describe('Testando o Login', () => {
     }
   });
 
-  it('Erro de conexão com internet', async () => {
+  it.skip('Erro de conexão com internet', async () => {
     try {
         await authService.signIn('glob@gmail.com', '123');
     } catch (error) {

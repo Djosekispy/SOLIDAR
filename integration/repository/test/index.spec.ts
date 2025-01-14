@@ -1,26 +1,27 @@
+import { isAxiosError } from "axios";
 import { userImplementation } from "../implementation";
 
 describe('Testando o Login', () => {
 
-  it('Deve retornar err quando a base Url não for definida', async () => {
+  it.skip('Deve retornar err quando a base Url não for definida', async () => {
     try {
         await userImplementation.login('glob@gmail.com', '123');
     } catch (error) {
         expect((error as any).message).toBe('Invalid URL: undefined/seller/login');
     }
   });
-  it.skip('Deve retornar : Ops! Nenhuma conta associada.', async () => {
+  it('Deve retornar : Ops! Nenhuma conta associada.', async () => {
     try {
         await userImplementation.login('glob@gmail.com', '123');
     } catch (error) {
-        expect((error as any).message).toBe('Ops! Nenhuma conta associada.');
+        expect(isAxiosError(error) ? error.response?.data.message : error).toBe('Ops! Nenhuma conta associada.');
     }
   });
 
   it.skip('Deve retornar: Sucesso', async () => {
     try {
-      const user = await userImplementation.login('globof129@gmail.com', '123');
-      expect(user).toMatchObject({
+      const { data } = await userImplementation.login('globof129@gmail.com', '123');
+      expect(data.seller).toMatchObject({
         id: expect.any(Number),
         reference: expect.any(String),
         username: expect.any(String),

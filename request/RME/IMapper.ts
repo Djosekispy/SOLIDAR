@@ -5,10 +5,10 @@ type RequestConfig = {
   };
   
   type RequestMethods = {
-    get: (paramsQueries?: any) => Promise<any>;
-    post: (paramsBody?: any) => Promise<any>;
-    put: (paramsBody?: any) => Promise<any>;
-    delete: (paramsQueries?: any) => Promise<any>;
+    get: (paramsQueries?: any,token? : string) => Promise<any>;
+    post: (paramsBody?: any, token? : string) => Promise<any>;
+    put: (paramsBody?: any,token? : string) => Promise<any>;
+    delete: (paramsQueries?: any,token? : string) => Promise<any>;
   };
   
 

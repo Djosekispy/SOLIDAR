@@ -11,7 +11,7 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "repository:test" : "jest ./integration/repository/test/index.spec.ts",
-     "service:test" : "jest ./integration/service/test/index.spec.ts "
+    "service:test" : "jest ./integration/service/test/index.spec.ts"
   },
   "jest": {
     "preset": "jest-expo"

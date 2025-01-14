@@ -43,14 +43,14 @@ export default class RequestMapper<T extends RequestConfig> {
       {},
       {
         get: (_, routeName: string) => ({
-          get: (paramsQueries?: any) =>
-            this.makeRequest("GET", routeName as keyof T, { paramsQueries }),
-          post: (paramsBody?: any) =>
-            this.makeRequest("POST", routeName as keyof T, { paramsBody }),
-          put: (paramsBody?: any) =>
-            this.makeRequest("PUT", routeName as keyof T, { paramsBody }),
-          delete: (paramsQueries?: any) =>
-            this.makeRequest("DELETE", routeName as keyof T, { paramsQueries }),
+          get: (paramsQueries?: any,token? : string) =>
+            this.makeRequest("GET", routeName as keyof T, { paramsQueries , token}),
+          post: (paramsBody?: any, token? : string) =>
+            this.makeRequest("POST", routeName as keyof T, { paramsBody , token}),
+          put: (paramsBody?: any,token? : string) =>
+            this.makeRequest("PUT", routeName as keyof T, { paramsBody,token }),
+          delete: (paramsQueries?: any,token? : string) =>
+            this.makeRequest("DELETE", routeName as keyof T, { paramsQueries , token}),
         }),
       }
     ) as RouteMap<T>;
