@@ -1,17 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-
-type RequestConfig = {
-  [routeName: string]: {
-    endpoint: string;
-  };
-};
-
-type RequestMethods = {
-  get: (paramsQueries?: any) => Promise<any>;
-  post: (paramsBody?: any) => Promise<any>;
-  put: (paramsBody?: any) => Promise<any>;
-  delete: (paramsQueries?: any) => Promise<any>;
-};
+import { RequestConfig, RequestMethods } from "./IMapper";
 
 type RouteMap<T extends RequestConfig> = {
   [K in keyof T]: RequestMethods;
@@ -29,7 +17,7 @@ export default class RequestMapper<T extends RequestConfig> {
   private async makeRequest(
     method: "GET" | "POST" | "PUT" | "DELETE",
     routeName: keyof T,
-    { paramsBody, paramsQueries }: { paramsBody?: any; paramsQueries?: any } = {}
+    { paramsBody, paramsQueries, token }: { paramsBody?: any; paramsQueries?: any; token?: string } = {}
   ): Promise<any> {
     const route = this.config[routeName];
     if (!route) {
@@ -42,6 +30,10 @@ export default class RequestMapper<T extends RequestConfig> {
       url,
       ...(paramsQueries && { params: paramsQueries }),
       ...(paramsBody && {data: paramsBody} ),
+      headers: {
+        "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
     };
     return this.api.request(axiosConfig);
   }
