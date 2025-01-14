@@ -1,3 +1,4 @@
+import { isAxiosError } from "axios";
 import IUserRepository from "../repository/interface/userRepository";
 import IAuthService from "./interface/IAuth";
 
@@ -11,7 +12,8 @@ class AuthService implements IAuthService {
       const user =  await this.userRepository.login(sanitizedEmail, sanitizedPassword);
       return user;
     } catch (error) {
-       throw (error as any).message
+      throw isAxiosError(error) ? error.response?.data : error;
+       
     }
   };
 }

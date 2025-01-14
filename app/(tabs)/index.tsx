@@ -17,7 +17,7 @@ const LoginScreen = () => {
       const user = await authService.signIn(email, password);
       alert('Usuário logado')
     } catch (error) {
-      alert(error)
+      alert((error as any).message)
     } finally {
       setIsLoading(false);
     }

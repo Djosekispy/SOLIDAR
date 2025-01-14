@@ -1,14 +1,7 @@
 import Euser from "@/integration/model/entity/Euser";
 
-interface ILoginResponse {
-    token?: string;
-    seller?:  Euser
-    sucess : boolean
-    message? : any
-  }
-
 interface IPostRequest {
-   login(email: string, password: string): Promise<ILoginResponse> 
+  loginRequest(email: string, password: string): Promise<any> 
 }
 
-export {ILoginResponse, IPostRequest }
+export {IPostRequest }
