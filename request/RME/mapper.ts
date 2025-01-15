@@ -1,4 +1,4 @@
-import api from "@/request/utils/api";
+import api from "@/config/api";
 import RequestMapper from "./RequestMapping";
 import config from "@/config/endpoint";
 
