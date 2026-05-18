@@ -18,7 +18,6 @@ Arquitetura RIV (Request-Integration-View)
 
 - [Artigo no Medium](https://medium.com/@victordev8080/arquitetura-orientada-%C3%A0-integra%C3%A7%C3%A3o-para-aplica%C3%A7%C3%B5es-mobile-um-modelo-desacoplado-para-c%C3%B3digo-leve-a5f57ff2e074)
 
-- 
 ## **Estrutura do Projeto**
 
 A estrutura de pastas foi organizada para refletir claramente as responsabilidades de cada camada, sem esquecer:
